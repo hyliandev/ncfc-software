@@ -70,11 +70,44 @@ $_SETTINGS=Array(
 	'controller_path'=>Array(),
 	
 	// This is the parameters as an array
-	'parameters'=>Array()
+	'parameters'=>Array(),
+	
+	// List of routes
+	'routes'=>Array(
+		'index'=>'home/index'
+	),
 	
 	
 	
 	// END REQUEST INFORMATION
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// OTHER
+	
+	
+	
+	// Errors and other short page messages
+	// These are displayed at the top of the page, above the content
+	// Find their implementation in template.php
+	// They're based on bootstrap classes
+	'alerts'=>Array(
+		'warning'=>Array(),
+		'info'=>Array(),
+		'success'=>Array(),
+		'danger'=>Array()
+	)
+	
+	
+	
+	// END OTHER
 	
 );
 

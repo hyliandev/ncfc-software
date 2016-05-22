@@ -1,3 +1,0 @@
-<h1>404 Error</h1>
-
-<p>The page you requested could not be found.</p>

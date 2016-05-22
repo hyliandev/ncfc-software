@@ -14,7 +14,13 @@ function main(){
 	// ================================
 	
 	// Get the raw page request
-	$_SETTINGS['request_raw']=isset($_GET['page'])?$_GET['page']:'';
+	// If it's empty(), then make it index
+	// Index should either have a route or a controller
+	$_SETTINGS['request_raw']=!empty($_GET['page'])?$_GET['page']:'index';
+	
+	// See if the raw request matches a route
+	if(isset($_SETTINGS['routes'][$_SETTINGS['request_raw']]))
+		$_SETTINGS['request_raw']=$_SETTINGS['routes'][$_SETTINGS['request_raw']]; 
 
 	// Get the raw page request as an array
 	// Split it by /
@@ -80,7 +86,7 @@ function main(){
 		);
 	} while(false);
 	
-	return '404';
+	return GetView('404error');
 }
 
 ?>
