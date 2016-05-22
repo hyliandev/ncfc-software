@@ -20,6 +20,9 @@ $_SETTINGS=Array(
 	// Directory with the views
 	'views_directory'=>'views',
 	
+	// Directory with the pre-written queries
+	'sql_directory'=>'sql',
+	
 	
 	
 	// END FRAMEWORK INFORMATION
@@ -38,10 +41,13 @@ $_SETTINGS=Array(
 	
 	
 	// This is for the title of the website
-	'site_title'=>'',
+	'site_title'=>$mybb->settings['bbname'],
 	
 	// This is for the title of the current page
 	'page_title'=>'',
+	
+	// The actual title to put in <title>
+	'final_page_title'=>'',
 	
 	
 	
@@ -74,7 +80,7 @@ $_SETTINGS=Array(
 	
 	// List of routes
 	'routes'=>Array(
-		'index'=>'home/index'
+		'index'=>'updates'
 	),
 	
 	
@@ -103,7 +109,9 @@ $_SETTINGS=Array(
 		'info'=>Array(),
 		'success'=>Array(),
 		'danger'=>Array()
-	)
+	),
+	
+	'table_prefix'=>$config['database']['table_prefix']
 	
 	
 	

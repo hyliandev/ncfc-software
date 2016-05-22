@@ -86,7 +86,7 @@ function main(){
 		);
 	} while(false);
 	
-	return GetView('404error');
+	return GetFileOutput('404error');
 }
 
 ?>

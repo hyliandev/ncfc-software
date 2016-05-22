@@ -110,7 +110,13 @@ foreach($include_dirs as $dir){
 
 // $yield should contain all of the page's content
 // we're gonna make it whatever gets returned from the main() function
+// main() is from main.php in the includes directory
 $yield=main();
+
+// Create the final title
+$_SETTINGS['final_page_title']=(
+	!empty($_SETTINGS['page_title']) ? $_SETTINGS['page_title'] . ' &bull; ' : ''
+) . $_SETTINGS['site_title'];
 
 // Include the "template.html" file
 // It's a basic HTML template with necessary MyBB inserts
