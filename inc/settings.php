@@ -111,7 +111,11 @@ $_SETTINGS=Array(
 		'danger'=>Array()
 	),
 	
-	'table_prefix'=>$config['database']['table_prefix']
+	// The mybb database table prefix
+	'table_prefix'=>$config['database']['table_prefix'],
+	
+	// The table prefix for NCFC stuff
+	'cms_table_prefix'=>'ncfc_'
 	
 	
 	

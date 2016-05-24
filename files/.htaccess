@@ -1,0 +1,3 @@
+# Allow users to access files in this directory
+# Instead of redirecting to /index.php
+RewriteEngine off

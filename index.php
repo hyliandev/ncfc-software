@@ -88,6 +88,7 @@ foreach($include_dirs as $dir){
 		if(substr($include,-4,4)=='.php') include_once $include;
 	}
 }
+//die('<pre>'.GetFileOutput('create_staff_sections',Array(),'sql'));
 
 
 

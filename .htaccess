@@ -1,2 +1,9 @@
+# NCFC CMS htaccess
+
+# Turn on the rewrite engine so we can alter the way the URL is parsed
 RewriteEngine on
+
+# Anything past the root directory should be passed in a string to index.php
+# index.php will bring in any files we need
+# This helps dramatically cut down on repeated code
 RewriteRule ^(.*)$ index.php?page=$1 [QSA]

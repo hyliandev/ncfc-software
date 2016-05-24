@@ -51,6 +51,8 @@ class UpdatesController {
 				
 				// Get the user object
 				$topics[$key]['user']=GetUser($topic['uid']);
+				
+				$topics[$key]['date']=date(GetDateFormat(),$topics[$key]['timestamp']);
 			}
 		}else
 			// If there was an error, return an empty array

@@ -1,6 +1,12 @@
 <?php
 
+/*
+	This file houses the main() function
+	The $yield variable, which should contain the page's content, catches the main() return
+*/
+
 function main(){
+	// We need to access the settings in this function
 	global $_SETTINGS;
 	
 	/*

@@ -31,6 +31,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 <style type="text/css">
+/*
+	I copied this right from NCFC's old CSS lololol
+*/
+@font-face 
+{
+	font-family: GameCube;
+	src: url('<?=GetMainsiteUrl()?>files/theme/GameCube.ttf');
+}
+
 .alert a {
 	text-decoration:none;
 	float:right;
@@ -43,6 +52,65 @@ table {
 noscript.alert-warning {
 	display:block;
 	padding:0.5em;
+}
+
+div.t1.no-b {
+	border-width:0px;
+	text-align:left;
+}
+
+div.t2 {
+	height:initial !important;
+	max-height:initial;
+	margin-left:0;
+	font-size:1em;
+}
+
+div.t2.font {
+	font-family:inherit;
+}
+
+.row.divtable .col-sm-1,
+.row.divtable .col-sm-2,
+.row.divtable .col-sm-3,
+.row.divtable .col-sm-4,
+.row.divtable .col-sm-5,
+.row.divtable .col-sm-6,
+.row.divtable .col-sm-7,
+.row.divtable .col-sm-8,
+.row.divtable .col-sm-9,
+.row.divtable .col-sm-10,
+.row.divtable .col-sm-11,
+.row.divtable .col-sm-12 {
+	padding:0.5em;
+}
+
+#container {
+	padding-top:0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin:0;
+}
+
+.center {
+	text-align:center !important;
+}
+
+.t2 h1 {
+	text-align:center;
+}
+
+.row {
+	padding:1em;
+}
+
+.nopadding {
+	padding:0 !important;
+}
+
+p.paragraph {
+	padding:1em;
 }
 </style>
 

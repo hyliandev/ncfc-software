@@ -9,6 +9,39 @@
 
 
 
+// Get URL to mainsite
+function GetMainsiteUrl(){
+	return $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].explode('index.php',$_SERVER['SCRIPT_NAME'])[0];
+}
+
+
+
+
+
+// Get a print_r output of a variable
+// Includes <pre> tag for formatting
+function GetDebug($var){
+	return '<pre>'.var_export($var,true).'</pre>';
+}
+
+
+
+
+
+// 
+function GetDateFormat(){
+	global $mybb;
+	
+	if(!empty($mybb->user->dateformat))
+		return $mybb->user->dateformat;
+	
+	return $mybb->settings['dateformat'];
+}
+
+
+
+
+
 // Use this function for database queries
 // It will either return a PDO query object, or false if there's an error
 function DBQuery($sql){
@@ -126,7 +159,7 @@ function GetUser($id){
 	global $DB, $mybb;
 	
 	// If the ID is invalid, return an empty object
-	if(IsValidId($id)) return new stdClass();
+	if(!IsValidID($id)) return new stdClass();
 	
 	// Get the output of the 'get_user' SQL query
 	$query=GetFileOutput('get_user',Array('uid'=>$id),'sql');
