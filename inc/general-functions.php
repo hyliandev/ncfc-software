@@ -55,7 +55,10 @@ function DBQuery($sql){
 	
 	file_put_contents(
 		'db_error_logs',
-		print_r($e,true) . "\n" . '[ '.date('m/d/Y @ g:i:sa',time()).' ]' . "\n\n\n"
+			file_get_contents('db_error_logs') .
+			'[ '.date('m/d/Y @ g:i:sa',time()).' ]: ' .
+			print_r($e,true) .
+			"\n\n\n"
 	);
 	
 	$_SETTINGS['alerts']['danger'][]='Database error: ' . $e[2];

@@ -1,0 +1,1 @@
+SELECT * FROM <?=$prefix?>staff_sections;

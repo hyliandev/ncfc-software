@@ -1,0 +1,1 @@
+SELECT * FROM <?=$prefix?>staff WHERE section=<?=$section_id?> ORDER BY precedence;

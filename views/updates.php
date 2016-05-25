@@ -15,13 +15,10 @@
 		</div>
 		
 		<div class="row divtable">
-			<div class="col-sm-3"><div class="t1 no-b center">
-				<h3><?=build_profile_link($topic['user']->username_styled,$topic['user']->uid)?></h3>
-				<br>
-				<?=$topic['user']->avatar_img?>
-				<br><br>
-				Posted <?=$topic['date']?>
-			</div></div>
+			<div class="col-sm-3"><?=GetFileOutput('user_profile_short',Array(
+				'user'=>$topic['user'],
+				'string'=>'Posted '.$topic['date']
+			))?></div>
 			
 			<div class="col-sm-9"><div class="t1 no-b">
 				<?=$topic['message']?>

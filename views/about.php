@@ -18,4 +18,22 @@ The NCFC started in 2007 as an organized effort by Shadowman and DJ Yoshiman, an
 	<h2>Staff</h2>
 </div>
 
-<p>lol</p>
+<?php foreach($sections as $section): ?>
+	<?php if(!empty($section['title'])): ?>
+		<h3><?=$section['title']?></h3>
+	<?php endif; ?>
+	
+	<div class="row">
+		<?php foreach($section['staff'] as $staff): ?>
+			<div class="col-sm-6 col-md-4 col-lg-3">
+				<?=GetFileOutput(
+					'user_profile_short',
+					Array(
+						'user'=>$staff,
+						'string'=>$staff->staff_page_title
+					)
+				)?>
+			</div>
+		<?php endforeach; ?>
+	</div>
+<?php endforeach; ?>
