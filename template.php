@@ -29,6 +29,7 @@
 <?=$headerinclude?>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
 <style type="text/css">
 /*
@@ -109,6 +110,10 @@ h1, h2, h3, h4, h5, h6 {
 	padding:0 !important;
 }
 
+.nomargin {
+	margin:0;
+}
+
 p.paragraph {
 	padding:1em;
 }
@@ -133,6 +138,12 @@ $(document).ready(function(){
 
 <body>
 <?=$header?>
+
+<?php foreach(scandir($_SETTINGS['controller_directory']) as $controller): ?>
+	<?php if(substr($controller,-4)=='.php'): $controller=substr($controller,0,strlen($controller)-4); ?>
+		<a href="<?=GetMainsiteUrl() . $controller ?>"><?=strtoupper($controller)?></a>
+	<?php endif; ?>
+<?php endforeach; ?>
 
 <?php foreach($_SETTINGS['alerts'] as $class=>$alert_group): ?>
 	<?php foreach($alert_group as $alert): ?>

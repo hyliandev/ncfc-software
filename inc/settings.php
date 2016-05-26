@@ -49,7 +49,8 @@ $_SETTINGS=Array(
 	// The actual title to put in <title>
 	'final_page_title'=>'',
 	
-	
+	// URL to forum
+	'forum_url'=>'http://localhost/ncfc/forum/',
 	
 	// END SITE INFORMATION
 	

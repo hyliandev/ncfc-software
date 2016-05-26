@@ -1,35 +1,8 @@
-[ 05/25/2016 @ 12:18:43am ]: Array
+[ 05/26/2016 @ 12:57:45am ]: Array
 (
-    [0] => 42000
-    [1] => 1064
-    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=<?$section_id?> ORDER BY precedence' at line 1
-)
-
-
-
-[ 05/25/2016 @ 12:18:43am ]: Array
-(
-    [0] => 42000
-    [1] => 1064
-    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=<?$section_id?> ORDER BY precedence' at line 1
-)
-
-
-
-[ 05/25/2016 @ 12:18:43am ]: Array
-(
-    [0] => 42000
-    [1] => 1064
-    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '=<?$section_id?> ORDER BY precedence' at line 1
-)
-
-
-
-[ 05/25/2016 @ 12:19:05am ]: Array
-(
-    [0] => 42000
-    [1] => 1064
-    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY precedence' at line 1
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'mybb_posts.id' in 'field list'
 )
 
 
