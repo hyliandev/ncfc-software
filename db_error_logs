@@ -34,3 +34,21 @@
 
 
 
+[ 05/28/2016 @ 7:34:20pm ]: Array
+(
+    [0] => 42000
+    [1] => 1065
+    [2] => Query was empty
+)
+
+
+
+[ 05/28/2016 @ 7:34:55pm ]: Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'mybb.mybb_booths' doesn't exist
+)
+
+
+

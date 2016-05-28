@@ -241,18 +241,18 @@ function base64_url_encode($value){
 
 
 // Decode the URL-safe base64 string
-function base64_url_decore($value){
+function base64_url_decode($value){
 	$value=str_replace('-','+',$value);
 	$value=str_replace('_','/',$value);
 	
-	return base64_decore($value);
+	return base64_decode($value);
 }
 
 
 
 
 
-//
+// Use this function to make a string URL-safe
 function makeURLsafe($string){
 	$string=explode(' ',$string);
 	
@@ -261,6 +261,42 @@ function makeURLsafe($string){
 	}
 	
 	return implode('-',$string);
+}
+
+
+
+
+
+// Use this function to parse some extra necesary values for the booth
+function ParseBooth($booth){
+	$booth['id_base64']=base64_url_encode($booth['id']);
+	$booth['user']=GetUser($booth['uid']);
+	
+	return $booth;
+}
+
+
+
+
+
+// Use this function to get a more readable file size from bytes
+function ParseFileSize($s){
+	$suffixes=Array(
+		'',
+		'K',
+		'M',
+		'G',
+		'T'
+	);
+	$denom_use=0;
+	$denom=1024;
+	
+	while($s > $denom && $denom_use < count($suffixes) - 1){
+		$s/=$denom;
+		$denom_use++;
+	}
+	
+	return round($s,2).' '.$suffixes[$denom_use].'B';
 }
 
 ?>
