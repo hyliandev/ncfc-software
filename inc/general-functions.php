@@ -218,4 +218,49 @@ function GetUser($id){
 	return $query;
 }
 
+
+
+
+
+// This is a function for base64 encoding something into a URL-safe string
+// PHP's base64 uses the + / and = characters. These are not preferable for URLs
+// The / interferes with the parameters
+// The + and = are generally used in $_GET values; I'm replacing them because I feel like it
+function base64_url_encode($value){
+	$value=base64_encode($value);
+	
+	$value=str_replace('+','-',$value);
+	$value=str_replace('/','_',$value);
+	$value=str_replace('=','',$value);
+	
+	return $value;
+}
+
+
+
+
+
+// Decode the URL-safe base64 string
+function base64_url_decore($value){
+	$value=str_replace('-','+',$value);
+	$value=str_replace('_','/',$value);
+	
+	return base64_decore($value);
+}
+
+
+
+
+
+//
+function makeURLsafe($string){
+	$string=explode(' ',$string);
+	
+	foreach($string as $key=>$value){
+		$string[$key]=strtolower(preg_replace('/[^a-zA-Z0-9]/','',$value));
+	}
+	
+	return implode('-',$string);
+}
+
 ?>

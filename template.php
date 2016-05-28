@@ -121,6 +121,63 @@ p.paragraph {
 .bottommenu {
 	display:none;
 }
+
+.booth-top, .booth-bottom, .booth-top .ncfc-thumbnail {
+	border:3px solid #808080;
+	text-align:center;
+	color:#000;
+}
+
+.booth-top .ncfc-thumbnail {
+	background-size:cover;
+	display:inline-block;
+	width:259px;
+	height:227px;
+	overflow:hidden;
+}
+
+.ncfc-thumbnail .description {
+	overflow:auto;
+	max-width:100%;
+	background-color:rgba(0,0,0,0.5);
+	display:none;
+	color:#FFF;
+	height:224px;
+}
+
+.ncfc-thumbnail:hover .description {
+	display:block;
+}
+
+.booth-bottom h4 {
+	font-weight:bold;
+}
+
+.booth-top, .booth-bottom {
+	background-color:#EFEFEF;
+	border-width:6px;
+	padding:0.5em;
+}
+
+.booth-top {
+	border-bottom-width:0;
+}
+
+.booth-bottom {
+	border-top-width:0;
+}
+
+.booth-bottom-left {
+	border-right:0;
+}
+
+.booth-bottom-right {
+	border-left:0;
+}
+
+.booth-bottom-left, .booth-bottom-right {
+	padding:0;
+}
 </style>
 
 <script type="text/javascript">
