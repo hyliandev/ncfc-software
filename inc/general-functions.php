@@ -90,7 +90,7 @@ function IsValidID($id=null){
 
 
 
-// Get the 
+// Get the file path
 function GetFilePath($array,$setting,$extension='php'){
 	// We need to use the gobal $_SETTINGS array
 	global $_SETTINGS;

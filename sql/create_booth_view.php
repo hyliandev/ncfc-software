@@ -1,1 +1,0 @@
-INSERT INTO <?=$prefix?>booth_views VALUES ( 0, <?=$booth_id?> );

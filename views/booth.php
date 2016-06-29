@@ -16,16 +16,15 @@
 					Mario
 				</span>
 				&nbsp;
-				<span class="nowrap">
-					<a href="<?=GetMainsiteUrl()?>booths/like/<?=$booth['id_base64']?>"
-					data-toggle="tooltip" data-placement="bottom" title="Like this booth?"
+				<span class="nowrap" id="booth-likes">
+					<a href="<?=GetMainsiteUrl()?>booths/like/<?=$booth['id_base64']?>" data-show-like-text
 					class="like-booth"><span class="fa fa-star<?=$booth['has_liked'] > 0 ? '' : '-o'?>"></span></a>&nbsp;
-					<?=$booth['likes']?> like<?=$booth['likes']==1?'':0?>
+					<span class="like-count"><?=$booth['likes']?> Like<?=$booth['likes']==1?'':'s'?></span>
 				</span>
 				&nbsp;
 				<span class="nowrap">
 					<span class="fa fa-eye"></span>&nbsp;
-					<?=$booth['views']?> Views
+					<?=$booth['views']?> View<?=$booth['views']==1?'':'s'?>
 				</span>
 				&nbsp;
 				<span class="nowrap">

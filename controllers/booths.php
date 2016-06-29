@@ -61,10 +61,10 @@ class BoothsController {
 		
 		if($booth!==false){
 			$create_view=DBQuery(GetFileOutput(
-				'create_booth_view',
+				'insert_booth_view',
 				Array(
 					'prefix'=>$_SETTINGS['cms_table_prefix'],
-					'booth_id'=>$DB->quote($id)
+					'id'=>$DB->quote($id)
 				),
 				'sql'
 			));
@@ -77,6 +77,68 @@ class BoothsController {
 		}else $booth=Array();
 		
 		return GetFileOutput('booth',Array('booth'=>$booth));
+	}
+	
+	function like($_id){
+		global $DB, $mybb, $_SETTINGS;
+		
+		$id=base64_url_decode($_id);
+		
+		$uid=$mybb->user['uid'];
+		
+		$has_liked=DBQuery(GetFileOutput(
+			'get_booth_has_liked',
+			Array(
+				'prefix'=>$_SETTINGS['cms_table_prefix'],
+				'id'=>$id,
+				'user_id'=>$uid
+			),
+			'sql'
+		))->fetch()[0];
+		
+		$like=DBQuery(GetFileOutput(
+			($has_liked ? 'delete' : 'insert') . '_booth_like',
+			Array(
+				'prefix'=>$_SETTINGS['cms_table_prefix'],
+				'id'=>$DB->quote($id),
+				'user_id'=>$DB->quote($mybb->user['uid'])
+			),
+			'sql'
+		));
+		
+		$data=null;
+		
+		if($like){
+			$data=DBQuery(GetFileOutput(
+				'get_booth_likes',
+				Array(
+					'prefix'=>$_SETTINGS['cms_table_prefix'],
+					'id'=>$DB->quote($id)
+				),
+				'sql'
+			));
+			if($data!==false){
+				$data=$data->fetch()[0];
+				$lang_data.=' Like' . ($data==1?'':'s');
+				$like=true;
+			}else{
+				$data=null;
+				$like=false;
+			}
+		}
+		
+		if(empty($_POST['ajax']))
+			header('Location:' . GetMainsiteUrl() . 'booths/view/'. $_id);
+		else{
+			$ret=Array(
+				'success'=>$like,
+				'count'=>$data,
+				'lang'=>$lang_data,
+				'icon'=>'fa-star'.(!$has_liked?'':'-o')
+			);
+			header('Content-type:application/json');
+			die(json_encode($ret));
+		}
 	}
 	
 	function download($id){

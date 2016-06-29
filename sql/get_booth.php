@@ -1,8 +1,8 @@
 SELECT
 *,
-(SELECT COUNT(*) FROM <?=$prefix?>booth_likes WHERE booth_id=<?=$id?>) AS likes,
+(<?=GetFileOutput('get_booth_likes',Array('prefix'=>$prefix,'id'=>$id),'sql')?>) AS likes,
 (SELECT COUNT(*) FROM <?=$prefix?>booth_views WHERE booth_id=<?=$id?>) AS views,
-(SELECT COUNT(*) FROM <?=$prefix?>booth_likes WHERE booth_id=<?=$id?> AND uid=<?=$user_id?> LIMIT 1) AS has_liked
+(<?=GetFileOutput('get_booth_has_liked',Array('prefix'=>$prefix,'id'=>$id,'user_id'=>$user_id),'sql')?>) AS has_liked
 
 FROM <?=$prefix?>booths
 

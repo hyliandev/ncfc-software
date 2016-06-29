@@ -1,0 +1,1 @@
+INSERT INTO <?=$prefix?>booth_likes VALUES ( 0, <?=$id?>, <?=$user_id?> );

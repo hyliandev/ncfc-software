@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM <?=$prefix?>booth_likes WHERE booth_id=<?=$id?> AND uid=<?=$user_id?> LIMIT 1
