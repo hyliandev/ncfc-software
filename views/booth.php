@@ -19,13 +19,13 @@
 				<span class="nowrap">
 					<a href="<?=GetMainsiteUrl()?>booths/like/<?=$booth['id_base64']?>"
 					data-toggle="tooltip" data-placement="bottom" title="Like this booth?"
-					class="like-booth"><span class="fa fa-star-o"></span></a>&nbsp;
-					0 likes
+					class="like-booth"><span class="fa fa-star<?=$booth['has_liked'] > 0 ? '' : '-o'?>"></span></a>&nbsp;
+					<?=$booth['likes']?> like<?=$booth['likes']==1?'':0?>
 				</span>
 				&nbsp;
 				<span class="nowrap">
 					<span class="fa fa-eye"></span>&nbsp;
-					0 Views
+					<?=$booth['views']?> Views
 				</span>
 				&nbsp;
 				<span class="nowrap">

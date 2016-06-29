@@ -1,3 +1,4 @@
 SELECT *
 FROM <?=$prefix?>booths
-ORDER BY category
+WHERE category=<?=$category?>
+;

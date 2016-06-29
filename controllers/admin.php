@@ -16,6 +16,12 @@ class AdminController {
 			'sql'
 		).'</pre>';
 	}
+	
+	function user(){
+		global $mybb;
+		
+		return GetDebug($mybb->user);
+	}
 }
 
 ?>

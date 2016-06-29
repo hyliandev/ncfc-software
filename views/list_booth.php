@@ -16,7 +16,7 @@
 <div class="booth-bottom booth-bottom-right col-xs-2"></div>
 
 <div class="col-xs-2 rating">
-	<strong>0</strong>
+	<strong><?=$booth['likes']?></strong>
 	<br>
 	<a href="<?=GetMainsiteUrl()?>booths/like/<?=$booth['id_base64']?>" class="like-booth">
 		<span class="fa fa-star-o"></span>
