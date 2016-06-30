@@ -199,3 +199,11 @@ p.paragraph {
 .nowrap {
 	white-space:nowrap;
 }
+
+.booths-category {
+	background-position:left center, right center;
+	background-repeat:no-repeat;
+	padding-right:5em;
+	padding-left:5em;
+	text-align:center;
+}

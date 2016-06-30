@@ -86,45 +86,55 @@ class BoothsController {
 		
 		$uid=$mybb->user['uid'];
 		
-		$has_liked=DBQuery(GetFileOutput(
-			'get_booth_has_liked',
-			Array(
-				'prefix'=>$_SETTINGS['cms_table_prefix'],
-				'id'=>$id,
-				'user_id'=>$uid
-			),
-			'sql'
-		))->fetch()[0];
-		
-		$like=DBQuery(GetFileOutput(
-			($has_liked ? 'delete' : 'insert') . '_booth_like',
-			Array(
-				'prefix'=>$_SETTINGS['cms_table_prefix'],
-				'id'=>$DB->quote($id),
-				'user_id'=>$DB->quote($mybb->user['uid'])
-			),
-			'sql'
-		));
-		
-		$data=null;
-		
-		if($like){
-			$data=DBQuery(GetFileOutput(
-				'get_booth_likes',
+		if(!empty($uid)){
+			$has_liked=DBQuery(GetFileOutput(
+				'get_booth_has_liked',
 				Array(
 					'prefix'=>$_SETTINGS['cms_table_prefix'],
-					'id'=>$DB->quote($id)
+					'id'=>$id,
+					'user_id'=>$uid
+				),
+				'sql'
+			))->fetch()[0];
+			
+			$like=DBQuery(GetFileOutput(
+				($has_liked ? 'delete' : 'insert') . '_booth_like',
+				Array(
+					'prefix'=>$_SETTINGS['cms_table_prefix'],
+					'id'=>$DB->quote($id),
+					'user_id'=>$DB->quote($mybb->user['uid'])
 				),
 				'sql'
 			));
-			if($data!==false){
-				$data=$data->fetch()[0];
-				$lang_data.=' Like' . ($data==1?'':'s');
-				$like=true;
-			}else{
-				$data=null;
-				$like=false;
+			
+			$data=null;
+			
+			if($like){
+				$data=DBQuery(GetFileOutput(
+					'get_booth_likes',
+					Array(
+						'prefix'=>$_SETTINGS['cms_table_prefix'],
+						'id'=>$DB->quote($id)
+					),
+					'sql'
+				));
+				if($data!==false){
+					$data=$data->fetch()[0];
+					$lang_data.=' Like' . ($data==1?'':'s');
+					$like=true;
+				}else{
+					$data=null;
+					$like=false;
+				}
 			}
+			
+			$error=null;
+		}else{
+			$like=false;
+			$data=null;
+			$lang_data=null;
+			$has_liked=false;
+			$error='You must be logged in!';
 		}
 		
 		if(empty($_POST['ajax']))
@@ -134,7 +144,8 @@ class BoothsController {
 				'success'=>$like,
 				'count'=>$data,
 				'lang'=>$lang_data,
-				'icon'=>'fa-star'.(!$has_liked?'':'-o')
+				'icon'=>'fa-star'.(!$has_liked?'':'-o'),
+				'error'=>$error
 			);
 			header('Content-type:application/json');
 			die(json_encode($ret));

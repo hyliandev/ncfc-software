@@ -3,7 +3,11 @@
 <br>
 
 <?php foreach($categories as $category): ?>
-	<div class="t2"><h3><?=$category->title?></h3></div>
+	<div class="t2 booths-category"
+	style="background-image:url('<?=GetMainsiteUrl()?>/files/theme/<?=makeURLsafe($category->title)?>.png'),
+	url('<?=GetMainsiteUrl()?>/files/theme/<?=makeURLsafe($category->title)?>.png');">
+		<h3><?=$category->title?></h3>
+	</div>
 	<div class="row">
 		<?php foreach($category->booths as $booth): ?>
 			<!--<pre><?=print_r($booth,true)?></pre>-->

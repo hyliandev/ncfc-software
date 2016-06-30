@@ -47,6 +47,8 @@ jQuery(function($){
 						.removeClass('fa-star-o')
 						.addClass(response.icon)
 					;
+				}else if(response.error){
+					// 
 				}
 			});
 		});
