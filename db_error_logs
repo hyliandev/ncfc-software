@@ -348,3 +348,70 @@ WHERE category=1' at line 3
 
 
 
+[ 07/08/2016 @ 1:13:55am ]: Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND uid= LIMIT 1) AS has_liked
+FROM ncfc_booths
+WHERE category=1' at line 4
+)
+
+
+
+[ 07/08/2016 @ 1:14:45am ]: Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND uid=1 LIMIT 1) AS has_liked
+FROM ncfc_booths
+WHERE category=1' at line 4
+)
+
+
+
+[ 07/24/2016 @ 2:03:07am ]: Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 4
+)
+
+
+
+[ 07/24/2016 @ 2:03:34am ]: Array
+(
+    [0] => 42000
+    [1] => 1065
+    [2] => Query was empty
+)
+
+
+
+[ 07/24/2016 @ 2:04:30am ]: Array
+(
+    [0] => 42000
+    [1] => 1065
+    [2] => Query was empty
+)
+
+
+
+[ 07/24/2016 @ 2:08:50am ]: Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'action=likeAND time_done > 1469326030' at line 5
+)
+
+
+
+[ 07/24/2016 @ 2:09:38am ]: Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'mybb.mybb_user_actions' doesn't exist
+)
+
+
+

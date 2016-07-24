@@ -8,13 +8,13 @@ class AdminController {
 	function ShowSQL($sql=null,$cms=null){
 		global $_SETTINGS;
 		
-		return '<pre>'.GetFileOutput(
+		return '<textarea disabled style="display:block;width:100%;height:10em;color:#000;font-family:monospace;">'.GetFileOutput(
 			$sql,
 			Array(
 				'prefix'=>$_SETTINGS[($cms ? 'cms_' : '') . 'table_prefix']
 			),
 			'sql'
-		).'</pre>';
+		).'</textarea>';
 	}
 	
 	function user(){

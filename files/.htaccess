@@ -1,3 +1,5 @@
 # Allow users to access files in this directory
 # Instead of redirecting to /index.php
 RewriteEngine off
+# This is so users can't rummage through any files
+Options -Indexes

@@ -2,7 +2,7 @@
 
 class BoothsController {
 	function index(){
-		global $DB, $_SETTINGS;
+		global $DB, $_SETTINGS, $mybb;
 		
 		$categories=DBQuery(GetFIleOutput(
 			'get_booth_categories',
@@ -20,7 +20,8 @@ class BoothsController {
 					'get_booths',
 					Array(
 						'prefix'=>$_SETTINGS['cms_table_prefix'],
-						'category'=>$category->id
+						'category'=>$category->id,
+						'user_id'=>$mybb->user['uid']
 					),
 					'sql'
 				));

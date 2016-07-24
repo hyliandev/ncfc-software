@@ -77,6 +77,7 @@ function IsValidID($id=null){
 	if(empty($id)) return false;
 	
 	// If it's not a number, it's invalid
+	// This will still pass if it's a string with a number in it
 	if(!is_numeric($id)) return false;
 	
 	// If it's less than or equal to zero, it's invalid
@@ -297,6 +298,31 @@ function ParseFileSize($s){
 	}
 	
 	return round($s,2).' '.$suffixes[$denom_use].'B';
+}
+
+
+
+
+
+// See if a user has committed this action recently
+function UserHasCommittedActionSince($action,$time){
+	global $_SETTINGS, $mybb, $DB;
+	
+	$q=DBQuery(GetFileOutput(
+		'get_special_user_action',
+		Array(
+			'uid'=>$DB->quote($mybb->user['uid']),
+			'time'=>$DB->quote($time),
+			'action'=>$DB->quote($action),
+			'prefix'=>$_SETTINGS['cms_table_prefix']
+		),
+		'sql'
+	));
+	
+	// If the query fails, don't let the user do it!
+	if($q===false) return true;
+	
+	return !empty($q->fetch()[0]);
 }
 
 ?>
